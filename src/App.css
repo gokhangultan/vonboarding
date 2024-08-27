@@ -1,0 +1,14 @@
+#root {
+  
+  margin: 0 auto;
+  
+}
+
+
+h1{
+  @apply text-[#878a99] uppercase font-medium text-ellipsis;
+}
+
+h2{
+  @apply text-xs font-semibold ;
+}
