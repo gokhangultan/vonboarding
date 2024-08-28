@@ -43,7 +43,7 @@ export default function DataTable(args) {
                             <div className="card">
                             <div className='px-4 pt-2'>
                                                     <Button color="danger" onClick={toggle}>
-                                                        Yeni Kullanıcı Ekle
+                                                        Yeni İşyeri Ekle
                                                     </Button>
                                                     <Modal isOpen={modal} toggle={toggle} {...args}>
                                                         <ModalHeader toggle={toggle}>Yeni İşyeri Ekle</ModalHeader>
@@ -167,5 +167,6 @@ export default function DataTable(args) {
                 </div>
             </div>
         </div>
+        
     );
 }

@@ -16,3 +16,12 @@ body {
   --vz-text-opacity: 1;
   color: var(--vz-secondary-color) !important;
 }
+
+.collapse {
+  visibility: visible;
+}
+
+.btn {
+  box-shadow: none;
+}
+

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { addUser } from '../store/actions/RoleActions';
 
-export default function App() {
+export default function NewUserForm() {
   const {
     register,
     handleSubmit,
