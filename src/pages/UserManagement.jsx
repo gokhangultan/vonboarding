@@ -1,7 +1,10 @@
+import UserTable from "../components/UserTable";
+
 export default function UserManagement() {
     return (
-      <>
-            User Management
-          </>
+      <div className="bg-secondaryColor ">
+      
+      <UserTable />
+   </div>
     );
   }

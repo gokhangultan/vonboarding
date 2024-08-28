@@ -1,7 +1,13 @@
+import DataTable from '../components/DataTable'
+
+
 export default function MerchantPool() {
     return (
-      <div>
-          <p className="text-red-50">MerchantPool</p> 
-          </div>
+      <div className="bg-secondaryColor ">
+     
+           <h1>MerchantPool</h1>
+           <DataTable />
+     
+   </div>
     );
   }

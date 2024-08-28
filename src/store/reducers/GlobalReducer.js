@@ -1,14 +1,18 @@
 export const GlobalActions = {
     setRole: "SET_ROLES",
     setTheme: "SET_THEME",
-    setLanguage: "SET_LANGUAGE"
+    setLanguage: "SET_LANGUAGE",
+    setUsers: "SET_USERS",
+    addUser: "ADD_USER" 
+
 }
 
 // Initial State
 const initialState = {
     roles: [],
     theme: "",
-    language: ""
+    language: "",
+    users: []
 };
 
 export const globalReducer = (state = initialState, action) => {
@@ -17,6 +21,11 @@ export const globalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 roles: action.payload
+            };
+            case GlobalActions.setUsers:
+            return {
+                ...state,
+                users: action.payload
             };
         case GlobalActions.setCategories:
             return {
@@ -32,6 +41,11 @@ export const globalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 language: action.payload
+            };
+            case GlobalActions.addUser:
+            return {
+                ...state,
+                users: [...state.users, action.payload]
             };
         default:
             return state;

@@ -26,3 +26,13 @@ export const setRoles = (roles) => ({
     type: GlobalActions.setRole,
     payload: roles
 });
+
+export const addUser = (user) => ({
+    type: GlobalActions.addUser,
+    payload: user,
+});
+
+export const addOrganization = (organization) => ({
+    type: GlobalActions.addOrganization,
+    payload: organization,
+});

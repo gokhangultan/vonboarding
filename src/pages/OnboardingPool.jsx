@@ -1,7 +1,11 @@
 export default function OnboardingPool() {
     return (
-      <>
-           Onboarding Pool
-          </>
+      <div className="bg-secondaryColor ">
+      <div className="main-content">
+       <div className="page-content">
+           <h1>OnboardingPool</h1>
+       </div>
+   </div>
+   </div>
     );
   }

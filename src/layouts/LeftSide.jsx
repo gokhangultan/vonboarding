@@ -1,6 +1,26 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import {
+  Nav,
+  NavItem,
+  Dropdown,
+  DropdownItem,
+  DropdownToggle,
+  DropdownMenu,
+  NavLink,
+} from 'reactstrap';
 
 export default function LeftSide() {
+  const [dropdown1Open, setDropdown1Open] = useState(false);
+  const [dropdown2Open, setDropdown2Open] = useState(false);
+  const [dropdown3Open, setDropdown3Open] = useState(false);
+  const [dropdown4Open, setDropdown4Open] = useState(false);
+
+  const toggleDropdown1 = () => setDropdown1Open(prevState => !prevState);
+  const toggleDropdown2 = () => setDropdown2Open(prevState => !prevState);
+  const toggleDropdown3 = () => setDropdown3Open(prevState => !prevState);
+  const toggleDropdown4 = () => setDropdown4Open(prevState => !prevState);
+
   return (
     <div className="app-menu navbar-menu">
       <div className="navbar-brand-box">
@@ -27,93 +47,59 @@ export default function LeftSide() {
                 <i className="mdi mdi-speedometer"></i> <span data-key="t-widgets">Özetim</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/merchantpool" className="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="isyerihavuzu">
+
+            {/* İşyeri Havuzu*/}
+            <Dropdown nav isOpen={dropdown1Open} toggle={toggleDropdown1}>
+              <DropdownToggle nav caret>
                 <i className="mdi mdi-store-check"></i> <span data-key="t-dashboards">İşyeri Havuzu</span>
-              </Link>
-              <div className="collapse menu-dropdown" id="merchantpool">
-                <ul className="nav nav-sm flex-column">
-                  <li className="nav-item">
-                    <Link to="merchant-pool.html" className="nav-link" data-key="t-analytics"> Tüm Havuzu Gör <span className="badge border border-success text-success">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="add-merchant.html" className="nav-link" data-key="t-analytics"> İşyeri Ekle </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="my-merchant.html" className="nav-link" data-key="t-analytics"> Havuzdaki İşyerlerim <span className="badge border border-warning text-warning">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="merchant-api.html" className="nav-link" data-key="t-analytics"> Api Servisi </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu className="p-3">
+                <DropdownItem tag={Link} to="/merchantpool">Tüm Havuzu Gör</DropdownItem>
+                <DropdownItem tag={Link} to="/merchantpool">İşyeri Ekle</DropdownItem>
+                <DropdownItem tag={Link} to="/merchantpool">Havuzdaki İşyerlerim</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem tag={Link} to="/merchantpool">API Servisi</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
 
-            <li className="nav-item">
-              <Link to="/onboardingpool" className="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="onboardinghavuzu">
+            {/* Onboarding Havuzu */}
+            <Dropdown nav isOpen={dropdown2Open} toggle={toggleDropdown2}>
+              <DropdownToggle nav caret>
                 <i className="mdi mdi-briefcase-upload"></i> <span data-key="t-dashboards">Onboarding Havuzu</span>
-              </Link>
-              <div className="collapse menu-dropdown" id="onboardinghavuzu">
-                <ul className="nav nav-sm flex-column">
-                  <li className="nav-item">
-                    <Link to="my-enterprise-merchant.html" className="nav-link" data-key="t-analytics"> Tüm Üye İşyerlerim <span className="badge border border-success text-success">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="compliance-review.html" className="nav-link" data-key="t-analytics"> Uyum Bekleyen <span className="badge border border-warning text-warning">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="risk-review.html" className="nav-link" data-key="t-analytics"> Risk Bekleyen <span className="badge border border-warning text-warning">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="bank-definition.html" className="nav-link" data-key="t-analytics"> Banka Tanımı <span className="badge border border-warning text-warning">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="open-enterprise-merchant-list.html" className="nav-link" data-key="t-analytics"> Açık İşyerleri <span className="badge border border-success text-success">0</span></Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="close-enterprise-merchant-list.html" className="nav-link" data-key="t-analytics"> Kapanan İşyerleri <span className="badge border border-danger text-danger">0</span></Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu className="p-3">
+                <DropdownItem tag={Link} to="my-enterprise-merchant.html">Tüm Üye İşyerlerim <span className="badge border border-success text-success">0</span></DropdownItem>
+                <DropdownItem tag={Link} to="compliance-review.html">Uyum Bekleyen <span className="badge border border-warning text-warning">0</span></DropdownItem>
+                <DropdownItem tag={Link} to="risk-review.html">Risk Bekleyen <span className="badge border border-warning text-warning">0</span></DropdownItem>
+                <DropdownItem tag={Link} to="bank-definition.html">Banka Tanımı <span className="badge border border-warning text-warning">0</span></DropdownItem>
+                <DropdownItem tag={Link} to="open-enterprise-merchant-list.html">Açık İşyerleri <span className="badge border border-success text-success">0</span></DropdownItem>
+                <DropdownItem tag={Link} to="close-enterprise-merchant-list.html">Kapanan İşyerleri <span className="badge border border-danger text-danger">0</span></DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
 
-            <li className="nav-item">
-              <Link to="/organizationsettings" className="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+            {/* Kuruluş Ayarları */}
+            <Dropdown nav isOpen={dropdown3Open} toggle={toggleDropdown3}>
+              <DropdownToggle nav caret>
                 <i className="mdi mdi-stove"></i> <span data-key="t-dashboards">Kuruluş Ayarları</span>
-              </Link>
-              <div className="collapse menu-dropdown" id="sidebarDashboards">
-                <ul className="nav nav-sm flex-column">
-                  <li className="nav-item">
-                    <Link to="my-enterprise.html" className="nav-link" data-key="t-analytics"> Kuruluşum </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="my-enterprise-pos.html" className="nav-link" data-key="t-analytics"> Poslarım </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="my-enterprise-key.html" className="nav-link" data-key="t-analytics"> Key Tanımlarım </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="my-enterprise-api.html" className="nav-link" data-key="t-analytics"> Api Servisi </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li className="nav-item">
-              <Link to="/usermanagement" className="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="kullaniciyonetimi">
-                <i className="mdi mdi-account-cog"></i> <span data-key="t-dashboards">Kullanıcı Yönetimi</span>
-              </Link>
-              <div className="collapse menu-dropdown" id="kullaniciyonetimi">
-                <ul className="nav nav-sm flex-column">
-                  <li className="nav-item">
-                    <Link to="users.html" className="nav-link" data-key="t-analytics"> Kullanıcılar </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="add-users.html" className="nav-link" data-key="t-analytics"> Kullanıcı Ekle </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+              </DropdownToggle>
+              <DropdownMenu className="p-3">
+                <DropdownItem tag={Link} to="my-enterprise.html">Kuruluşum</DropdownItem>
+                <DropdownItem tag={Link} to="my-enterprise-pos.html">Poslarım</DropdownItem>
+                <DropdownItem tag={Link} to="my-enterprise-key.html">Key Tanımlarım</DropdownItem>
+                <DropdownItem tag={Link} to="my-enterprise-api.html">Api Servisi</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+             {/* Kullanıcı Yönetimi */}
+             <Dropdown nav isOpen={dropdown4Open} toggle={toggleDropdown4}>
+              <DropdownToggle nav caret>
+                <i className="mdi mdi-stove"></i> <span data-key="t-dashboards">Kullanıcı Yönetimi</span>
+              </DropdownToggle>
+              <DropdownMenu className="p-3">
+                <DropdownItem tag={Link} to="/usermanagement">Kullanıcılar</DropdownItem>
+                <DropdownItem tag={Link} to="/usermanagement">Kullanıcı Ekle</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            
             <li className="nav-item">
               <Link to="/vessenger" className="nav-link menu-link">
                 <i className="mdi mdi-message-badge-outline"></i> <span data-key="t-widgets">Vessenger <span className="badge border border-danger text-danger">0</span></span>
