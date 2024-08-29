@@ -1,6 +1,6 @@
 export default function Home() {
     return (
-      <div className="bg-secondaryColor ">
+      <div className="dark:bg-white bg-primaryColor ">
          <div className="main-content">
           <div className="page-content">
               <div className="container-fluid">
@@ -10,7 +10,7 @@ export default function Home() {
                               <div className="row">
                                   <div className="col-xl-4 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Havuzdaki İşyerleri</p>
@@ -31,7 +31,7 @@ export default function Home() {
                                   </div>
                                   <div className="col-xl-4 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Ödeme Kuruluşları</p>
@@ -52,7 +52,7 @@ export default function Home() {
                                   </div>
                                   <div className="col-xl-4 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Kuruluşa Bağlı İşyeri Sayısı</p>
@@ -75,7 +75,7 @@ export default function Home() {
                               <div className="row">
                                   <div className="col-xl-3 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Toplam İşyerim</p>
@@ -97,7 +97,7 @@ export default function Home() {
                                   </div>
                                   <div className="col-xl-3 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Uyum Bekleyen</p>
@@ -118,7 +118,7 @@ export default function Home() {
                                   </div>
                                   <div className="col-xl-3 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Risk Bekleyen</p>
@@ -139,7 +139,7 @@ export default function Home() {
                                   </div>
                                   <div className="col-xl-3 col-md-6">
                                       <div className="card card-animate">
-                                          <div className="card-body">
+                                          <div className="card-body home-card border-1">
                                               <div className="d-flex align-items-center">
                                                   <div className="flex-grow-1 overflow-hidden">
                                                       <p className="text-uppercase fw-medium text-muted text-truncate mb-0"> Banka Tanımı Bekleyen</p>

@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
-  faMagnifyingGlass,
-  faCartShopping,
-  faBars,
-  faX,
-  faPlus,
   faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -18,8 +12,11 @@ import {
   NavLink,
 } from 'reactstrap';
 import { CaretDown, CaretUp } from 'react-bootstrap-icons';
+import { useSelector } from 'react-redux';
 
 export default function LeftSide() {
+  const darkMode = useSelector((store) => store.global.darkMode);
+
   const [collapse1, setCollapse1] = useState(false);
   const [collapse2, setCollapse2] = useState(false);
   const [collapse3, setCollapse3] = useState(false);
@@ -45,28 +42,30 @@ export default function LeftSide() {
   };
 
   return (
-    <div className="app-menu navbar-menu bg-[#151529] dark:bg-gray-500">
+    <div className="app-menu navbar-menu bg-[#151529] dark:bg-gray-50">
       <div className="navbar-brand-box">
-        <Link to="/" className="logo logo-dark">
-          <span className="logo-sm">
-            <img src="src/assets/images/logo-sm.png" alt="" height="48" />
+        <Link to="/" className="">
+        <span className="logo-sm">
+            <img
+              src={darkMode ? "src/assets/images/logo-dark.png" : "src/assets/images/logo-light.png"}
+              alt=""
+              height="48"
+            />
           </span>
-          <span className="logo-lg">
-            <img src="src/assets/images/logo-dark.png" alt="" height="60" />
-          </span>
+         
         </Link>
         <button type="button" className="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
           <i className="ri-record-circle-line"></i>
         </button>
       </div>
 
-      <div id="scrollbar">
-        <div className="container-fluid">
+      <div id="scrollbar" className=''>
+        <div className="container-fluid ">
           <div id="two-column-menu"></div>
-          <ul className="navbar-nav" id="navbar-nav">
+          <ul className="navbar-nav dark:hover:text-white" id="navbar-nav">
             <li className="menu-title"><span data-key="t-menu">Menu</span></li>
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <Link to="/" className="nav-link ">
                 <i className="mdi mdi-speedometer"></i> <span data-key="t-widgets">Özetim</span>
               </Link>
             </li>
@@ -203,7 +202,7 @@ export default function LeftSide() {
               </Collapse>
             </NavItem>
 
-            <li className="nav-item">
+            <li className="nav-item ">
               <Link to="/vessenger" className="nav-link menu-link">
                 <i className="mdi mdi-message-badge-outline"></i> <span data-key="t-widgets">Vessenger <span className="badge border border-danger text-danger">0</span></span>
               </Link>

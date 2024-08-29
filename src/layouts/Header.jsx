@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 export default function Header() {
-    const darkMode = useSelector((store) => store.darkMode);
+    const darkMode = useSelector((store) => store.global.darkMode);
 
     const dispatch = useDispatch();
 
@@ -35,13 +35,13 @@ let notifyTheme = (isDarkMode) => {
     });
 };
     return (
-      <div id="layout-wrapper">
-      <header id="page-topbar">
-          <div className="layout-width">
-              <div className="navbar-header">
-                  <div className="d-flex">
+      <div id="layout-wrapper " className="dark:bg-white bg-primaryColor">
+      <header id="page-topbar " className="">
+          <div className="layout-width ">
+              <div className="navbar-header ">
+                  <div className="d-flex ">
                       
-                      <button type="button" className="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none" id="topnav-hamburger-icon">
+                      <button type="button" className=" btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none" id="topnav-hamburger-icon">
                           <span className="hamburger-icon">
                               <span></span>
                               <span></span>
@@ -81,15 +81,15 @@ let notifyTheme = (isDarkMode) => {
                           </button>
                       </div>
                       
-                      <div className="ms-1 header-item d-none d-sm-flex">
-                      <button onClick={toggleDarkMode}>
-                    <span className={`rounded-md p-0.5 ${darkMode ? 'bg-yellow-600' : 'bg-gray-400'}`}>
-                        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+                      
+                      <button onClick={toggleDarkMode} className="">
+                    <span className={`rounded-full p-2 ${darkMode ? 'bg-yellow-400' : 'bg-gray-300'}`}>
+                        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} size="xl"/>
                         <FontAwesomeIcon icon={darkMode ? faToggleOn : faToggleOff} />
                     </span>
                     
                 </button>
-                      </div>
+                      
 
                     <Notification />  
                     <UserDetail />

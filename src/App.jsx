@@ -17,7 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
-  const darkMode = useSelector((store) => store.darkMode);
+  const darkMode = useSelector((store) => store.global.darkMode);
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
 }, [darkMode]); 
@@ -45,7 +45,7 @@ function App() {
   }, []);
 
   return (
-    <div className={` ${darkMode ? 'dark bg-[#252128]' : 'bg-[#FFFFFF]'}`}>
+    <div className={` ${darkMode ? 'dark bg-white' : 'bg-primaryColor'}`}>
     <Router>
       
       <Switch>

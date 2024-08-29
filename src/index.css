@@ -32,10 +32,12 @@ body {
 .navbar-menu .navbar-nav .nav-link {
   color: #a3a6b7;
 }
-.navbar-menu .navbar-nav .nav-link:hover {
-  color: white;
-}
+
 
 button:hover .fa-check {
   color: white; 
+}
+
+.dark .bg-primaryColor {
+  @apply bg-secondaryColor; 
 }
