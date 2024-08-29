@@ -1,31 +1,46 @@
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import Notification from "../components/Notification";
 import UserDetail from "../components/UserDetail";
+import { faToggleOff, faToggleOn } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function Header() {
+    const darkMode = useSelector((store) => store.darkMode);
+
+    const dispatch = useDispatch();
+
+   const toggleDarkMode = () => {
+    dispatch({ type: "DARK_MODE" });
+    
+    const currentDarkMode = !darkMode;
+    
+    localStorage.setItem("darkMode", JSON.stringify(currentDarkMode));
+    
+    notifyTheme(currentDarkMode); 
+};
+    
+
+let notifyTheme = (isDarkMode) => {
+    toast.success(isDarkMode ? 'DARK MODE AÇIK' : 'DARK MODE KAPALI', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: isDarkMode ? "dark" : "light", 
+    });
+};
     return (
       <div id="layout-wrapper">
       <header id="page-topbar">
           <div className="layout-width">
               <div className="navbar-header">
                   <div className="d-flex">
-                      <div className="navbar-brand-box horizontal-logo">
-                          <a href="index.html" className="logo logo-dark">
-                              <span className="logo-sm">
-                                  <img src="src/assets/images/logo-sm.png" alt="" height="48" />
-                              </span>
-                              <span className="logo-lg">
-                                  <img src="src/assets/images/logo-dark.png" alt="" height="60" />
-                              </span>
-                          </a>
-                          <a href="index.html" className="logo logo-light">
-                              <span className="logo-sm">
-                                  <img src="src/assets/images/logo-sm.png" alt=""  height="48" />
-                              </span>
-                              <span className="logo-lg">
-                                  <img src="src/assets/images/logo-light.png" alt="" height="60" />
-                              </span>
-                          </a>
-                      </div>
+                      
                       <button type="button" className="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none" id="topnav-hamburger-icon">
                           <span className="hamburger-icon">
                               <span></span>
@@ -34,7 +49,7 @@ export default function Header() {
                           </span>
                       </button>
                       <div className="app-search d-none d-md-block">
-                          <div className="position-relative">
+                          <div className="position-relative flex flex-col gap-2">
                               <span className="badge bg-primary-subtle text-primary">Operasyon Müdürü</span>
                           
                               <span className="badge bg-danger-subtle text-danger">Tam Yetkili Kullanıcı</span>
@@ -67,9 +82,13 @@ export default function Header() {
                       </div>
                       
                       <div className="ms-1 header-item d-none d-sm-flex">
-                          <button type="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode shadow-none">
-                              <i className='bx bx-moon fs-22'></i>
-                          </button>
+                      <button onClick={toggleDarkMode}>
+                    <span className={`rounded-md p-0.5 ${darkMode ? 'bg-yellow-600' : 'bg-gray-400'}`}>
+                        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+                        <FontAwesomeIcon icon={darkMode ? faToggleOn : faToggleOff} />
+                    </span>
+                    
+                </button>
                       </div>
 
                     <Notification />  

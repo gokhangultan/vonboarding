@@ -2,17 +2,21 @@ export const GlobalActions = {
     setRole: "SET_ROLES",
     setTheme: "SET_THEME",
     setLanguage: "SET_LANGUAGE",
+    toggleDarkMode: "DARK_MODE",
     setUsers: "SET_USERS",
     addUser: "ADD_USER" 
 
 }
+
+const localTheme = localStorage.getItem("darkMode");
 
 // Initial State
 const initialState = {
     roles: [],
     theme: "",
     language: "",
-    users: []
+    users: [],
+    darkMode: localTheme !== null ? JSON.parse(localTheme) : false
 };
 
 export const globalReducer = (state = initialState, action) => {
@@ -37,6 +41,11 @@ export const globalReducer = (state = initialState, action) => {
                 ...state,
                 theme: action.payload
             };
+            case GlobalActions.toggleDarkMode:
+                return {
+                  ...state,
+                  darkMode: !state.darkMode,
+                };
         case GlobalActions.setLanguage:
             return {
                 ...state,

@@ -8,6 +8,7 @@ import {
   faBars,
   faX,
   faPlus,
+  faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   Collapse,
@@ -44,7 +45,7 @@ export default function LeftSide() {
   };
 
   return (
-    <div className="app-menu navbar-menu">
+    <div className="app-menu navbar-menu bg-[#151529] dark:bg-gray-500">
       <div className="navbar-brand-box">
         <Link to="/" className="logo logo-dark">
           <span className="logo-sm">
@@ -88,16 +89,16 @@ export default function LeftSide() {
               <Collapse isOpen={collapse1}>
                 <Nav vertical>
                   <NavItem>
-                    <NavLink tag={Link} to="/merchantpool">Tüm Havuzu Gör</NavLink>
+                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Tüm Havuzu Gör</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/merchantpool">İşyeri Ekle</NavLink>
+                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> İşyeri Ekle</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/merchantpool">Havuzdaki İşyerlerim</NavLink>
+                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Havuzdaki İşyerlerim</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/merchantpool">API Servisi</NavLink>
+                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> API Servisi</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
@@ -121,22 +122,22 @@ export default function LeftSide() {
               <Collapse isOpen={collapse2}>
                 <Nav vertical>
                   <NavItem>
-                    <NavLink tag={Link} to="my-enterprise-merchant.html">Tüm Üye İşyerlerim <span className="badge border border-success text-success">0</span></NavLink>
+                    <NavLink tag={Link} to="my-enterprise-merchant.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Tüm Üye İşyerlerim <span className="badge border border-success text-success">0</span></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="compliance-review.html">Uyum Bekleyen <span className="badge border border-warning text-warning">0</span></NavLink>
+                    <NavLink tag={Link} to="compliance-review.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Uyum Bekleyen <span className="badge border border-warning text-warning">0</span></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="risk-review.html">Risk Bekleyen <span className="badge border border-warning text-warning">0</span></NavLink>
+                    <NavLink tag={Link} to="risk-review.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Risk Bekleyen <span className="badge border border-warning text-warning">0</span></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="bank-definition.html">Banka Tanımı <span className="badge border border-warning text-warning">0</span></NavLink>
+                    <NavLink tag={Link} to="bank-definition.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Banka Tanımı <span className="badge border border-warning text-warning">0</span></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="open-enterprise-merchant-list.html">Açık İşyerleri <span className="badge border border-success text-success">0</span></NavLink>
+                    <NavLink tag={Link} to="open-enterprise-merchant-list.html"> <FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Açık İşyerleri <span className="badge border border-success text-success">0</span></NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="close-enterprise-merchant-list.html">Kapanan İşyerleri <span className="badge border border-danger text-danger">0</span></NavLink>
+                    <NavLink tag={Link} to="close-enterprise-merchant-list.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Kapanan İşyerleri <span className="badge border border-danger text-danger">0</span></NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
@@ -160,16 +161,16 @@ export default function LeftSide() {
               <Collapse isOpen={collapse3}>
                 <Nav vertical>
                   <NavItem>
-                    <NavLink tag={Link} to="my-enterprise.html">Kuruluşum</NavLink>
+                    <NavLink tag={Link} to="my-enterprise.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Kuruluşum</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="my-enterprise-pos.html">Poslarım</NavLink>
+                    <NavLink tag={Link} to="my-enterprise-pos.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Poslarım</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="my-enterprise-key.html">Key Tanımlarım</NavLink>
+                    <NavLink tag={Link} to="my-enterprise-key.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Key Tanımlarım</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="my-enterprise-api.html">Api Servisi</NavLink>
+                    <NavLink tag={Link} to="my-enterprise-api.html"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Api Servisi</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
@@ -193,10 +194,10 @@ export default function LeftSide() {
               <Collapse isOpen={collapse4}>
                 <Nav vertical>
                   <NavItem>
-                    <NavLink tag={Link} to="/usermanagement"><FontAwesomeIcon icon={faUser} size='xl' className='px-2 text-[#46b5ff]' /> Kullanıcılar </NavLink>
+                    <NavLink tag={Link} to="/usermanagement"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Kullanıcılar </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/usermanagement"><FontAwesomeIcon icon={faPlus} size='xl' className='px-2 text-[#46b5ff]' /> Kullanıcı Ekle</NavLink>
+                    <NavLink tag={Link} to="/usermanagement"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Kullanıcı Ekle</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>

@@ -12,8 +12,16 @@ import Vessenger from './pages/Vessenger';
 import MerchantPool from './pages/MerchantPool';
 import Logout from './pages/Logout';
 import Login from './pages/Login';
+import { useSelector } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
+  const darkMode = useSelector((store) => store.darkMode);
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+}, [darkMode]); 
+
   useEffect(() => {
     const loadScript = (src) => {
       const script = document.createElement('script');
@@ -37,8 +45,9 @@ function App() {
   }, []);
 
   return (
+    <div className={` ${darkMode ? 'dark bg-[#252128]' : 'bg-[#FFFFFF]'}`}>
     <Router>
-      <ToastContainer position="top-right" autoClose={5000} />
+      
       <Switch>
         <Route path="/login" exact>
           <AuthLayout>
@@ -76,6 +85,8 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    <ToastContainer position="top-right" autoClose={5000} />
+    </div>
   );
 }
 
