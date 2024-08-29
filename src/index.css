@@ -38,6 +38,3 @@ button:hover .fa-check {
   color: white; 
 }
 
-.dark .bg-primaryColor {
-  @apply bg-secondaryColor; 
-}

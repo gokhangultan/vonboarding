@@ -23,7 +23,7 @@ export default function Header() {
     
 
 let notifyTheme = (isDarkMode) => {
-    toast.success(isDarkMode ? 'DARK MODE AÇIK' : 'DARK MODE KAPALI', {
+    toast.success(!isDarkMode ? 'DARK MODE AÇIK' : 'DARK MODE KAPALI', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -31,11 +31,11 @@ let notifyTheme = (isDarkMode) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: isDarkMode ? "dark" : "light", 
+        theme: !isDarkMode ? "dark" : "light", 
     });
 };
     return (
-      <div id="layout-wrapper " className="dark:bg-white bg-primaryColor">
+      <div id="layout-wrapper " className="dark:bg-secondaryColor bg-primaryColor py-2">
       <header id="page-topbar " className="">
           <div className="layout-width ">
               <div className="navbar-header ">
@@ -58,14 +58,10 @@ let notifyTheme = (isDarkMode) => {
                       </div>
                   </div>
 
-                  <div className="d-flex align-items-center">
-                      <div className="ms-1 header-item d-none d-sm-flex">
-                          <button type="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none" data-toggle="lockscreen">
-                              <i className='bx bx-lock fs-22'></i>
-                          </button>
-                      </div>
+                  <div className="flex justify-between gap -2 align-middle items-center">
+                      
                       <div className="dropdown ms-1 topbar-head-dropdown header-item">
-                          <button type="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <button type="button" className=" btn-topbar rounded-full shadow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <img  src="src/assets/images/flags/tr.svg" alt="Header Language" height="20" className="rounded" />
                           </button>
                           <div className="dropdown-menu dropdown-menu-end">
@@ -75,12 +71,12 @@ let notifyTheme = (isDarkMode) => {
                               </a>
                           </div>
                       </div>
+                     
                       <div className="ms-1 header-item d-none d-sm-flex">
                           <button type="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none" data-toggle="fullscreen">
                               <i className='bx bx-fullscreen fs-22'></i>
                           </button>
                       </div>
-                      
                       
                       <button onClick={toggleDarkMode} className="">
                     <span className={`rounded-full p-2 ${darkMode ? 'bg-yellow-400' : 'bg-gray-300'}`}>
@@ -88,9 +84,7 @@ let notifyTheme = (isDarkMode) => {
                         <FontAwesomeIcon icon={darkMode ? faToggleOn : faToggleOff} />
                     </span>
                     
-                </button>
-                      
-
+                      </button>
                     <Notification />  
                     <UserDetail />
                   </div>

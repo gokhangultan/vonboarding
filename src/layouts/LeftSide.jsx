@@ -192,6 +192,9 @@ export default function LeftSide() {
               </Button>
               <Collapse isOpen={collapse4}>
                 <Nav vertical>
+                <NavItem>
+                    <NavLink tag={Link} to="/changepassword"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Şifre Değiştir </NavLink>
+                  </NavItem>
                   <NavItem>
                     <NavLink tag={Link} to="/usermanagement"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Kullanıcılar </NavLink>
                   </NavItem>

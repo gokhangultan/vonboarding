@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, DropdownItem } from 'reactstrap';
 import NewUserForm from './NewUserForm';
 import { fetchUsers } from '../store/actions/FetchUsers';
 
@@ -49,26 +49,28 @@ export default function UserTable(args) {
     }, [dispatch]);
 
     return (
-        <div className="main-content">
-            <div className="page-content">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="card">
-                                <div className="card-header">
-                                    <h4 className="card-title mb-0">Kullanıcı Yönetimi</h4>
+        <div className="main-content ">
+            <div className="">
+                <div className="container-fluid ">
+                    <div className="row ">
+                        <div className="col-lg-12  ">
+                            <div className="card dark:bg-secondaryColor bg-primaryColor">
+                                <div className="card-header dark:bg-secondaryColor bg-primaryColor">
+                                    <h4 className="card-title mb-0 text-textColor">Kullanıcı Yönetimi</h4>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body text-textColor dark:text-primaryColor">
                                     <div className="listjs-table" id="customerList">
                                         <div className="row g-4 mb-3">
                                             <div className="col-sm-auto">
                                                 <div>
-                                                    <Button color="danger" onClick={toggle}>
+                                                    <Button color="danger" onClick={toggle} className=''>
                                                         Yeni Kullanıcı Ekle
                                                     </Button>
-                                                    <Modal isOpen={modal} toggle={toggle} {...args}>
-                                                        <ModalHeader toggle={toggle}>Yeni Kullanıcı Ekle</ModalHeader>
-                                                        <ModalBody>
+                                                    <Modal isOpen={modal} toggle={toggle} {...args} >
+                                                        <ModalHeader toggle={toggle} className='pb-4'>Yeni Kullanıcı Ekle</ModalHeader>
+                                                        <hr className='p-2' />
+
+                                                        <ModalBody className='w-100'>
                                                             <NewUserForm />
                                                         </ModalBody>
                                                         <ModalFooter>
@@ -86,19 +88,19 @@ export default function UserTable(args) {
                                             </div>
                                         </div>
                                         <div className="table-responsive table-card mt-3 mb-1">
-                                            <table className="table align-middle table-nowrap" id="customerTable">
-                                                <thead className="table-light">
+                                            <table className="table align-middle table-nowrap " id="customerTable" >
+                                                <thead className="dark:bg-secondaryColor bg-primaryColor ">
                                                     <tr>
                                                         <th scope="col" style={{ width: '50px' }}>
                                                             <div className="form-check">
                                                                 <input className="form-check-input" type="checkbox" id="checkAll" value="option" />
                                                             </div>
                                                         </th>
-                                                        <th className="sort" data-sort="customer_name">Customer</th>
+                                                        <th className="sort" data-sort="customer_name">ID</th>
                                                         <th className="sort" data-sort="email">Email</th>
-                                                        <th className="sort" data-sort="phone">Phone</th>
+                                                        <th className="sort" data-sort="phone">Ödeme Kuruluşu</th>
+                                                        <th className="sort" data-sort="status">Tipi</th>
                                                         <th className="sort" data-sort="date">Joining Date</th>
-                                                        <th className="sort" data-sort="status">Delivery Status</th>
                                                         <th className="sort" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>

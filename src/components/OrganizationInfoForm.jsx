@@ -1,28 +1,21 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Button } from "reactstrap";
+import { Button } from "reactstrap";
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { addOrganization } from '../store/actions/RoleActions';
-import OrganizationInfoForm from "./OrganizationInfoForm";
 
-export default function NewOrganizationForm(props) {
+export default function OrganizationInfoForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const [modal, setModal] = useState(false);
+  const dispatch = useDispatch();
 
-  const [open, setOpen] = useState('');
-  const toggle = (id) => {
-    if (open === id) {
-      setOpen();
-    } else {
-      setOpen(id);
-    }
-  };
-  const dispatch = useDispatch(); 
+  const toggle = () => setModal(!modal);
 
   const onSubmit = async (data) => {
     try {
@@ -38,16 +31,6 @@ export default function NewOrganizationForm(props) {
 
   return (
     <div className="dark:bg-white bg-primaryColor p-4">
-    <div className="main-content ">
-      
-      <div className="container">
-      <h4 className="card-title mb-0 text-textColor">Onboarding Düzenle</h4>
-      <div>
-      <Accordion flush open={open} toggle={toggle}>
-        <AccordionItem>
-          <AccordionHeader targetId="1">Şirket Bilgileri</AccordionHeader>
-          <AccordionBody accordionId="1">
-          <div className="dark:bg-white bg-primaryColor p-4">
       <div className="">
         <div className="">
           <h4 className="card-title mb-4 text-textColor">Onbardin Düzenle</h4>
@@ -199,32 +182,5 @@ export default function NewOrganizationForm(props) {
         </div>
       </div>
     </div>
-          </AccordionBody>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionHeader targetId="2">Accordion Item 2</AccordionHeader>
-          <AccordionBody accordionId="2">
-            <strong>This is the second item&#39;s accordion body.</strong>
-            You can modify any of this with custom CSS or overriding our default
-            variables. It&#39;s also worth noting that just about any HTML can
-            go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
-          </AccordionBody>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionHeader targetId="3">Accordion Item 3</AccordionHeader>
-          <AccordionBody accordionId="3">
-            <strong>This is the third item&#39;s accordion body.</strong>
-            You can modify any of this with custom CSS or overriding our default
-            variables. It&#39;s also worth noting that just about any HTML can
-            go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
-          </AccordionBody>
-        </AccordionItem>
-      </Accordion>
-    </div>
-    
-    </div>
-    </div></div>
   );
 }

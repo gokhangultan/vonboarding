@@ -32,15 +32,15 @@ export default function DataTable(args) {
     }, []);
 
     return (
-        <div className="main-content">
-            <div className="page-content">
+        <div className="main-content ">
+            <div className="">
                 <div className="container-fluid">
                     <div className="alert alert-danger" role="alert">
                         This is <strong>Datatable</strong> page in which we have used <b>jQuery</b> with CDN link!
                     </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="card">
+                    <div className="row ">
+                        <div className="col-lg-12 ">
+                            <div className="card dark:bg-secondaryColor bg-primaryColor">
                             <div className='px-4 pt-2'>
                                                     <Button color="danger" onClick={toggle}>
                                                         Yeni İşyeri Ekle
@@ -55,7 +55,7 @@ export default function DataTable(args) {
                                                     </Modal>
                                                 </div>
                                 <div className="card-body">
-                                    <table id="example" className="table table-bordered dt-responsive nowrap table-striped align-middle" style={{ width: '100%' }}>
+                                    <table id="example" className="table table-bordered dt-responsive nowrap table-striped align-middle text-secondaryColor dark:text-textColor" style={{ width: '100%' }}>
                                         <thead>
                                             <tr>
                                                 <th scope="col" style={{ width: '10px' }}>

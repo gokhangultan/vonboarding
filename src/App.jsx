@@ -14,13 +14,25 @@ import Logout from './pages/Logout';
 import Login from './pages/Login';
 import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
+import ChangePasswordForm from './components/ChangePasswordForm';
+import NewOrganizationForm from './components/NewOrganizationForm';
 
 
 function App() {
   const darkMode = useSelector((store) => store.global.darkMode);
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
-}, [darkMode]); 
+    const something = document.getElementsByTagName('html')[0];
+    if (darkMode) {
+      something.classList.remove('bg-primaryColor')
+      something.classList.add('bg-white');
+      something.classList.add('dark')
+    } else {
+      something.classList.remove('bg-white');
+      something.classList.remove('dark')
+      something.classList.add('bg-primaryColor')
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     const loadScript = (src) => {
@@ -77,8 +89,14 @@ function App() {
               <Route path="/vessenger" exact>
                 <Vessenger />
               </Route>
+              <Route path="/changepassword" exact>
+                <ChangePasswordForm />
+              </Route>
               <Route path="/merchantpool" exact>
                 <MerchantPool />
+              </Route>
+              <Route path="/neworganization" exact>
+                <NewOrganizationForm />
               </Route>
             </Switch>
           </PublicLayout>
