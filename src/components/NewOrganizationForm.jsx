@@ -41,18 +41,10 @@ export default function NewOrganizationForm(props) {
     <div className="main-content ">
       
       <div className="container">
-      <h4 className="card-title mb-0 text-textColor">Onboarding Düzenle</h4>
+      <h4 className="card-title mb-2 text-textColor">Onboarding Düzenle</h4>
       <div>
-      <Accordion flush open={open} toggle={toggle}>
-        <AccordionItem>
-          <AccordionHeader targetId="1">Şirket Bilgileri</AccordionHeader>
-          <AccordionBody accordionId="1">
-          <div className="dark:bg-white bg-primaryColor p-4">
-      <div className="">
-        <div className="">
-          <h4 className="card-title mb-4 text-textColor">Onbardin Düzenle</h4>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div className="flex gap-3 justify-between">
+      <form onSubmit={handleSubmit(onSubmit)} >
+      <div className="flex gap-3 justify-between">
             <input
               {...register("workplaceCode", { required: true })}
               type="text"
@@ -75,10 +67,14 @@ export default function NewOrganizationForm(props) {
             />
             </div>
             <hr className="my-4" />
-
-            <h4 className="card-title mb-4 text-textColor">Şirket Bilgileri</h4>
-
-
+      <Accordion flush open={open} toggle={toggle}>
+        <AccordionItem>
+          <AccordionHeader targetId="1">Şirket Bilgileri</AccordionHeader>
+          <AccordionBody accordionId="1">
+          <div className="dark:bg-white bg-primaryColor p-4">
+      <div className="">
+        <div className="">
+            <div className="flex flex-col gap-4">
             <div className="flex gap-3 justify-between">
             <input
               {...register("companyName", { required: true })}
@@ -194,34 +190,181 @@ export default function NewOrganizationForm(props) {
               className="p-3 w-100 bg-gray-100 rounded-lg"
             ></textarea>
 
-           
-          </form>
+</div>
+         
         </div>
       </div>
     </div>
           </AccordionBody>
         </AccordionItem>
         <AccordionItem>
-          <AccordionHeader targetId="2">Accordion Item 2</AccordionHeader>
-          <AccordionBody accordionId="2">
-            <strong>This is the second item&#39;s accordion body.</strong>
-            You can modify any of this with custom CSS or overriding our default
-            variables. It&#39;s also worth noting that just about any HTML can
-            go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
-          </AccordionBody>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionHeader targetId="3">Accordion Item 3</AccordionHeader>
-          <AccordionBody accordionId="3">
-            <strong>This is the third item&#39;s accordion body.</strong>
-            You can modify any of this with custom CSS or overriding our default
-            variables. It&#39;s also worth noting that just about any HTML can
-            go within the <code>.accordion-body</code>, though the transition
-            does limit overflow.
-          </AccordionBody>
-        </AccordionItem>
-      </Accordion>
+                  <AccordionHeader targetId="2">Şirket Yetkili Bilgileri</AccordionHeader>
+                  <AccordionBody accordionId="2">
+                    <div className="flex flex-col gap-4">
+                    <div className="flex gap-3 justify-between">
+                      <input
+                        {...register("sirketYetkilisiAd", { required: true })}
+                        type="text"
+                        placeholder="Yetkili Adı"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketYetkilisiSoyad", { required: true })}
+                        type="text"
+                        placeholder="Yetkili Soyadı"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketYetkilisiEmail", { required: true })}
+                        type="email"
+                        placeholder="Yetkili Email Adresi"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketYetkilisiTelefon", { required: true })}
+                        type="text"
+                        placeholder="Yetkili Telefon Numarası"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                    </div>
+                    <div className="flex gap-3 justify-between">
+                      
+                      <input
+                        {...register("sirketYetkilisiTc", { required: true })}
+                        type="text"
+                        placeholder="Yetkili TC No"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketYetkilisiDogumTarihi", { required: true })}
+                        type="date"
+                        placeholder="Yetkili Doğum Tarihi"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                    <select
+                        {...register("sirketYetkilisiTipi", { required: true })}
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Yetkili Tipi</option>
+                        <option value="tip1">Tip 1</option>
+                        <option value="tip2">Tip 2</option>
+                      </select>
+                    </div>
+                    
+                    </div>
+                  </AccordionBody>
+                </AccordionItem>
+                <AccordionItem>
+                  <AccordionHeader targetId="3">Şirket Ortağı Bilgileri</AccordionHeader>
+                  <AccordionBody accordionId="3">
+                    <div className="flex flex-col gap-4">
+                    <div className="flex gap-3 justify-between">
+                      <input
+                        {...register("sirketOrtagiAd", { required: true })}
+                        type="text"
+                        placeholder="Ortak Adı"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketOrtagiSoyad", { required: true })}
+                        type="text"
+                        placeholder="Ortak Soyadı"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketOrtagiEmail", { required: true })}
+                        type="email"
+                        placeholder="Ortak Email Adresi"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                       <input
+                        {...register("sirketOrtagiTelefon", { required: true })}
+                        type="text"
+                        placeholder="Ortak Telefon Numarası"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                    </div>
+                    <div className="flex gap-3 justify-between">
+                     
+                      <input
+                        {...register("sirketOrtagiTc", { required: true })}
+                        type="text"
+                        placeholder="Ortak TC No"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                      <input
+                        {...register("sirketOrtagiDogumTarihi", { required: true })}
+                        type="date"
+                        placeholder="Ortak Doğum Tarihi"
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      />
+                       <textarea
+                      {...register("sirketOrtagiAdresi", { required: true })}
+                      placeholder="Ortak Adresi"
+                      className="p-3 w-100 bg-gray-100 rounded-lg"
+                    ></textarea>
+                    </div>
+                   
+                    </div>
+                  </AccordionBody>
+                </AccordionItem>
+                <AccordionItem>
+                  <AccordionHeader targetId="4">Kullanılacak Özellikler</AccordionHeader>
+                  <AccordionBody accordionId="4">
+                    <div className="flex flex-col gap-4">
+                    <div className="flex gap-3 justify-between">
+                      <select
+                        {...register("sanalPos", { required: true })}
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Sanal POS Kullanılabilsin mi?</option>
+                        <option value="evet">Evet</option>
+                        <option value="hayir">Hayır</option>
+                      </select>
+                      <select
+                        {...register("mobilOdeme", { required: true })}
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Mobil Ödeme Kullanılabilsin mi?</option>
+                        <option value="evet">Evet</option>
+                        <option value="hayir">Hayır</option>
+                      </select>
+                      <select
+                        {...register("fizikselPos", { required: true })}
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Fiziksel POS Kullanılabilsin mi?</option>
+                        <option value="evet">Evet</option>
+                        <option value="hayir">Hayır</option>
+                      </select>
+                      <select
+                        {...register("softPos", { required: true })}
+                        className="p-3 w-100 bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Soft POS Kullanılabilsin mi?</option>
+                        <option value="evet">Evet</option>
+                        <option value="hayir">Hayır</option>
+                      </select>
+                    </div>
+                    <div className="flex gap-3 justify-between">
+                      
+                      <select
+                        {...register("paraTransferApi", { required: true })}
+                        className="p-3 w-[24%] bg-gray-100 rounded-lg"
+                      >
+                        <option value="">Para Transfer API Kullanılabilsin mi?</option>
+                        <option value="evet">Evet</option>
+                        <option value="hayir">Hayır</option>
+                      </select>
+                    </div>
+                    </div>
+                  </AccordionBody>
+                </AccordionItem>
+              </Accordion>
+              <Button type="submit" className="mt-4">
+                Kaydet
+              </Button>
+              </form>
     </div>
     
     </div>

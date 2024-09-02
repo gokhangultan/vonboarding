@@ -14,5 +14,5 @@ h2{
 }
 
 .home-card{
-  @apply dark:bg-white bg-primaryColor dark:border-none  rounded-md;
+  @apply dark:bg-white bg-primaryColor dark:border-none  rounded-md ;
 }

@@ -17,6 +17,11 @@ import { useSelector } from 'react-redux';
 export default function LeftSide() {
   const darkMode = useSelector((store) => store.global.darkMode);
 
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+  };
+
+
   const [collapse1, setCollapse1] = useState(false);
   const [collapse2, setCollapse2] = useState(false);
   const [collapse3, setCollapse3] = useState(false);
@@ -91,11 +96,9 @@ export default function LeftSide() {
                     <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Tüm Havuzu Gör</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> İşyeri Ekle</NavLink>
+                    <NavLink tag={Link} to="/neworganization"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> İşyeri Ekle</NavLink>
                   </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> Havuzdaki İşyerlerim</NavLink>
-                  </NavItem>
+                 
                   <NavItem>
                     <NavLink tag={Link} to="/merchantpool"><FontAwesomeIcon icon={faMinus}  size='lg' className='px-2 text-[#46b5ff]' /> API Servisi</NavLink>
                   </NavItem>
@@ -210,8 +213,8 @@ export default function LeftSide() {
                 <i className="mdi mdi-message-badge-outline"></i> <span data-key="t-widgets">Vessenger <span className="badge border border-danger text-danger">0</span></span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/logout" className="nav-link menu-link">
+            <li className="nav-item" onClick={handleLogout}>
+              <Link to="/logout" className="nav-link menu-link" >
                 <i className="mdi mdi-location-exit"></i> <span data-key="t-widgets">Çıkış</span>
               </Link>
             </li>

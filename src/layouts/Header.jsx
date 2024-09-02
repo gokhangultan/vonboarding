@@ -58,28 +58,9 @@ let notifyTheme = (isDarkMode) => {
                       </div>
                   </div>
 
-                  <div className="flex justify-between gap -2 align-middle items-center">
-                      
-                      <div className="dropdown ms-1 topbar-head-dropdown header-item">
-                          <button type="button" className=" btn-topbar rounded-full shadow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <img  src="src/assets/images/flags/tr.svg" alt="Header Language" height="20" className="rounded" />
-                          </button>
-                          <div className="dropdown-menu dropdown-menu-end">
-                              <a href="javascript:void(0);" className="dropdown-item notify-item language py-2" data-lang="en" title="English">
-                                  <img src="src/assets/images/flags/us.svg" alt="user-image" className="me-2 rounded" height="18" />
-                                  <span className="align-middle">English</span>
-                              </a>
-                          </div>
-                      </div>
-                     
-                      <div className="ms-1 header-item d-none d-sm-flex">
-                          <button type="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none" data-toggle="fullscreen">
-                              <i className='bx bx-fullscreen fs-22'></i>
-                          </button>
-                      </div>
-                      
+                  <div className="flex justify-between gap-2 align-middle items-center">  
                       <button onClick={toggleDarkMode} className="">
-                    <span className={`rounded-full p-2 ${darkMode ? 'bg-yellow-400' : 'bg-gray-300'}`}>
+                    <span className={`rounded-full p-2 ${darkMode ? 'bg-yellow-100' : 'bg-gray-600'}`}>
                         <FontAwesomeIcon icon={darkMode ? faSun : faMoon} size="xl"/>
                         <FontAwesomeIcon icon={darkMode ? faToggleOn : faToggleOff} />
                     </span>

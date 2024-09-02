@@ -19,16 +19,16 @@ export default function Notification({ direction, ...args }) {
     return (
         <div className="d-flex p-5">
         <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction}>
-          <DropdownToggle className='dark:bg-secondaryColor bg-primaryColor hover:bg-primaryColor dark:hover:bg-secondaryColor rounded-none border-none' ><FontAwesomeIcon icon={faBell}  size='xl' className=' text-[#46b5ff]' /> </DropdownToggle>
+          <DropdownToggle className='bg-white rounded-none border-none' ><FontAwesomeIcon icon={faBell}  size='xl' className=' text-[#46b5ff]' /> </DropdownToggle>
           <DropdownMenu {...args} className='w-[300px] bg-[#4b38b3] py-2'>
             <DropdownItem header><div className=' flex  justify-between align-middle items-center'><span className='text-base text-white font-semibold '>Bildirimler</span>
-            <button disabled className='dark:bg-white bg-primaryColor px-2 py-1 rounded-md text-[13px] font-semibold text-[#878a99] '>1 Yeni</button>
+            <button disabled className='bg-white px-2 py-1 rounded-md text-[13px] font-semibold text-black'>1 Yeni</button>
             </div></DropdownItem>
-            <div className='dark:bg-white bg-primaryColor'>
+            <div className='bg-white'>
             <DropdownItem disabled className='p-4'><div className='flex gap-3'>
                 <button className='p-1'><FontAwesomeIcon icon={faCommentDots}  size='2xl' className=' text-red-300' /> </button>
                 <div className='flex flex-col gap-2'>
-                    <span className='text-[#878a99] font-semibold'>Bildirim Başlık</span>
+                    <span className='text-primaryColor font-semibold'>Bildirim Başlık</span>
                     <h1>Bildirim Açıklama</h1>
                     <h1 className='text-xs'><FontAwesomeIcon icon={faClock}  size='lg' className=' text-[#878a99]' /> 13 DAKİKA ÖNCE</h1>
                 </div>
